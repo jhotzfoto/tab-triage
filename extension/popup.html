@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="color-scheme" content="light dark">
+  <title>Tab Triage</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header id="top">
+    <div class="bar">
+      <input id="q" type="search" placeholder="Filter tabs" title="Filter by title or URL" autocomplete="off" spellcheck="false" aria-label="Filter tabs">
+      <button id="btn-dupes" type="button">Select dupes</button>
+      <button id="btn-usage" type="button" title="Safari's memory and CPU right now (Safari-wide; Safari doesn't say which process is which tab)">Usage</button>
+      <button id="btn-session" type="button" title="Save every open tab as SafariSession_MMDD-HH:MM (private tabs are never saved)">Save session</button>
+      <button id="btn-refresh" class="icon" type="button" aria-label="Refresh (R)">&#x21bb;</button>
+      <button id="btn-tabview" class="icon" type="button" aria-label="Open as tab">&#x2922;</button>
+      <button id="btn-settings" class="icon" type="button" aria-label="Organize folders" title="Organize folders">&#x2699;&#xfe0e;</button>
+    </div>
+    <div class="bar sub">
+      <span id="stats" aria-live="polite"></span>
+      <span class="spacer"></span>
+      <button id="tg-private" class="seg" type="button" aria-pressed="true"></button>
+      <button id="tg-sort" class="seg" type="button" aria-pressed="true"></button>
+      <button id="tg-near" class="seg" type="button" aria-pressed="true"></button>
+    </div>
+    <div class="bar sub tools">
+      <button id="btn-stale" class="seg act" type="button" title="Reload tabs you haven't used for a while, so Safari lets go of the memory they've built up. Skips the tab you're on in each window, pinned tabs and tabs playing audio.">Refresh stale</button>
+      <select id="stale-days" class="seg" aria-label="Stale after" title="How long a tab has to go unused to count as stale">
+        <option value="1">1+ day</option>
+        <option value="3">3+ days</option>
+        <option value="7">7+ days</option>
+        <option value="14">14+ days</option>
+      </select>
+      <span class="spacer"></span>
+      <button id="btn-reset" class="seg act" type="button" title="Saves a session, closes every tab except pinned ones, then reopens them fresh. Safari keeps running.">Reset tabs</button>
+    </div>
+    <div id="meter" class="meter" hidden aria-live="polite"></div>
+    <div id="banners"></div>
+  </header>
+
+  <main id="list" tabindex="-1"><div class="empty">Reading tabs…</div></main>
+
+  <footer id="foot">
+    <div id="toast" role="status" hidden></div>
+    <div id="undo" hidden></div>
+    <div class="bar">
+      <span id="selcount">0 selected</span>
+      <button id="btn-clear" type="button" disabled>Clear</button>
+      <span class="spacer"></span>
+      <button id="btn-close" class="primary" type="button" disabled>Close</button>
+    </div>
+  </footer>
+
+  <div id="modal" class="modal" hidden>
+    <div class="card" role="alertdialog" aria-modal="true" aria-labelledby="modal-msg" aria-describedby="modal-note">
+      <p id="modal-msg"></p>
+      <p id="modal-note"></p>
+      <div class="actions">
+        <button id="modal-cancel" type="button">Cancel</button>
+        <button id="modal-ok" class="primary" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="lib/grouping.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

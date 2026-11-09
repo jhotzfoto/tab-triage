@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tab Triage</title>
+  <link rel="stylesheet" href="../Style.css">
+  <script src="../Script.js" defer></script>
+</head>
+<body>
+  <header>
+    <img src="../Icon.png" width="88" height="88" alt="">
+    <div>
+      <h1>Tab Triage</h1>
+      <p class="sub">Every open Safari tab, sorted into folders. Check, close, undo.</p>
+    </div>
+  </header>
+
+  <section class="unsigned hidden" id="unsigned">
+    <h2>This copy isn't signed</h2>
+    <p>Safari only runs it after you allow unsigned extensions:</p>
+    <ol>
+      <li>Safari &gt; <span class="sw">Settings</span> &gt; Advanced: tick <b>Show features for web developers</b> (older Safari: <b>Show Develop menu</b>).</li>
+      <li>In the menu bar: <b>Develop &gt; Allow Unsigned Extensions</b>, then enter your password.</li>
+    </ol>
+    <p class="fine">Safari turns this off every time it quits, so repeat it after each restart. Building Tab Triage from source with your own free Apple ID avoids this. <a href="#" data-url="https://github.com/jhotzfoto/tab-triage#install">How</a></p>
+  </section>
+
+  <ol class="steps">
+    <li class="step" id="step-enable">
+      <div class="mark" aria-hidden="true"></div>
+      <div class="body">
+        <h2>Turn on Tab Triage in Safari</h2>
+        <p>In Safari <span class="sw">Settings</span> &gt; Extensions, tick <b>Tab Triage</b>.</p>
+        <p class="status" id="status">Checking…</p>
+        <button id="open-settings">Open Safari Extensions <span class="sw">Settings</span></button>
+      </div>
+    </li>
+    <li class="step" id="step-websites" data-manual>
+      <div class="mark" aria-hidden="true"></div>
+      <div class="body">
+        <h2>Allow it on every website</h2>
+        <p>Select Tab Triage in the list, click <b>Edit Websites…</b> and set <b>When visiting other websites</b> to <b>Allow</b>.</p>
+        <p class="fine">Safari only shows an extension a tab's title and address on websites it's allowed on. Tab Triage reads nothing from the pages themselves.</p>
+        <label><input type="checkbox" data-step="websites"> Done</label>
+      </div>
+    </li>
+    <li class="step" id="step-private" data-manual>
+      <div class="mark" aria-hidden="true"></div>
+      <div class="body">
+        <h2>Private windows <span class="opt">optional</span></h2>
+        <p>Tick <b>Allow in Private Browsing</b> to see private tabs too. Tab Triage never saves anything about private tabs.</p>
+        <label><input type="checkbox" data-step="private"> Done, or skipped</label>
+      </div>
+    </li>
+    <li class="step" id="step-toolbar" data-manual>
+      <div class="mark" aria-hidden="true"></div>
+      <div class="body">
+        <h2>Find the button in Safari's toolbar</h2>
+        <p>Safari usually adds it. If it's missing: <b>View &gt; Customize Toolbar…</b> and drag Tab Triage in.</p>
+        <label><input type="checkbox" data-step="toolbar"> Done</label>
+      </div>
+    </li>
+  </ol>
+
+  <p class="ready hidden" id="ready">All set. Click <b>Tab Triage</b> in Safari's toolbar. You can close this window.</p>
+
+  <footer>
+    <span id="version"></span>
+    <span>Made by hotz.</span>
+    <a href="#" data-url="https://github.com/jhotzfoto/tab-triage">Project page</a>
+    <a href="#" data-url="https://github.com/jhotzfoto/tab-triage/blob/main/PRIVACY.md">Privacy</a>
+    <a href="#" data-url="https://github.com/sponsors/jhotzfoto">Support Tab Triage</a>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="color-scheme" content="light dark">
+  <title>Tab Triage folders</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <header class="top">
+    <h1>Tab Triage folders</h1>
+    <span id="status" role="status" aria-live="polite"></span>
+    <span class="spacer"></span>
+    <button id="undo" type="button" disabled title="Undo the last change (⌘Z)">Undo</button>
+    <button id="astext" type="button">Edit as text</button>
+    <button id="sessions" type="button" title="Saved Safari sessions">Sessions</button>
+    <button id="restore" type="button">Restore defaults</button>
+  </header>
+
+  <div id="org">
+    <nav id="side" aria-label="Folders">
+      <div class="colhead">Folders</div>
+      <div id="folders"></div>
+      <button id="addfolder" type="button" class="add">+ New folder</button>
+    </nav>
+    <section id="pane" aria-label="Selected folder"></section>
+    <aside id="tray" aria-label="Unsorted sites" data-drop="unsorted"></aside>
+  </div>
+
+  <section id="textmode" hidden>
+    <p class="hint">
+      Folder names start at the left edge. Sites go on indented lines under their folder (Tab adds two spaces).<br>
+      <code>Name: site, site</code> puts those sites in one group called Name. <code>site, site</code> gives each site its own group.<br>
+      A site is a domain (<code>google.com</code> covers <code>mail.google.com</code>) or a piece of a URL with <code>/</code> or <code>*</code> (<code>facebook.com/marketplace</code>).
+      The most specific match wins. Anything not listed goes in Unsorted.
+    </p>
+    <textarea id="outline" spellcheck="false" autocomplete="off" aria-label="Folder outline"></textarea>
+    <footer>
+      <button id="save" class="primary" type="button">Save</button>
+      <button id="back" type="button">Back to organizer</button>
+    </footer>
+  </section>
+
+  <script src="lib/grouping.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

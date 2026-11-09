@@ -1,0 +1,29 @@
+/* Saved sessions. Tokens, header, buttons, .meta, .empty and .rename come from options.css. */
+
+#list { display: flex; flex-direction: column; gap: 10px; max-width: 920px; margin: 0 auto; padding: 16px 20px 8px; }
+.sess { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+.shead { display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 8px 12px 8px 8px; }
+.chev { flex: none; width: 26px; height: 26px; padding: 0; border: 0; background: transparent; color: var(--ink-3); }
+.chev::before { content: "\25B8"; }
+.sess.open .chev::before { content: "\25BE"; }
+.sname {
+  min-width: 0; margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums; cursor: pointer;
+}
+.shead .meta { overflow: hidden; text-overflow: ellipsis; }
+button.danger { color: var(--danger); }
+button.armed, button.armed:hover:not(:disabled) { color: #fff; background: var(--danger); border-color: transparent; }
+button.small { height: 26px; font-size: 12px; }
+
+.sbody { padding: 2px 14px 12px 42px; border-top: 1px solid var(--line); }
+.win { margin-top: 8px; }
+.whead { display: flex; align-items: center; gap: 8px; min-height: 30px; }
+.wname { font-size: 13px; font-weight: 600; }
+.tabs { margin: 2px 0 0; padding: 0; list-style: none; }
+.tabs li { display: flex; align-items: baseline; gap: 10px; padding: 4px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
+.tabs li:last-child { border-bottom: 0; }
+.tabs a, .tabs .bad { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink); text-decoration: none; }
+.tabs a:hover { color: var(--accent); text-decoration: underline; }
+.host { flex: none; max-width: 40%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink-3); font-size: 12px; }
+.foot { max-width: 920px; margin: 6px auto 40px; padding: 0 20px; }
+@media (max-width: 640px) { .shead { flex-wrap: wrap; } .shead .spacer { display: none; } }

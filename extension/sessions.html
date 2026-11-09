@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="color-scheme" content="light dark">
+  <title>Tab Triage sessions</title>
+  <link rel="stylesheet" href="options.css">
+  <link rel="stylesheet" href="sessions.css">
+</head>
+<body>
+  <header class="top">
+    <h1>Saved sessions</h1>
+    <span id="status" role="status" aria-live="polite"></span>
+    <span class="spacer"></span>
+    <button id="save" class="primary" type="button" title="Save every open tab as SafariSession_MMDD-HH:MM">Save session now</button>
+    <button id="folders" type="button">Folders</button>
+  </header>
+  <main id="list"></main>
+  <p class="hint small foot">A session holds every open tab except private ones, window by window, and stays inside Tab Triage on this Mac. Restore opens each saved window as a new Safari window.</p>
+  <script src="sessions.js"></script>
+</body>
+</html>
